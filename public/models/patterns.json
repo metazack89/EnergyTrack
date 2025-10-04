@@ -1,0 +1,141 @@
+{
+  "patternsInfo": {
+    "name": "Energy Consumption Patterns",
+    "version": "1.0.0",
+    "lastUpdated": "2024-01-15",
+    "description": "Common patterns detected in energy consumption data"
+  },
+  "seasonalPatterns": {
+    "verano": {
+      "months": [6, 7, 8],
+      "avgIncrease": 15.5,
+      "peakHours": [14, 15, 16],
+      "characteristics": [
+        "Mayor uso de aire acondicionado",
+        "Incremento en consumo residencial",
+        "Picos en horas de tarde"
+      ]
+    },
+    "invierno": {
+      "months": [12, 1, 2],
+      "avgIncrease": 8.2,
+      "peakHours": [19, 20, 21],
+      "characteristics": [
+        "Uso de calefacción",
+        "Menor consumo durante el día",
+        "Picos en horas nocturnas"
+      ]
+    },
+    "primavera": {
+      "months": [3, 4, 5],
+      "avgChange": -2.1,
+      "peakHours": [18, 19, 20],
+      "characteristics": ["Consumo moderado", "Clima templado", "Menor uso de climatización"]
+    },
+    "otono": {
+      "months": [9, 10, 11],
+      "avgChange": -1.5,
+      "peakHours": [18, 19, 20],
+      "characteristics": [
+        "Transición climática",
+        "Consumo estable",
+        "Preparación para temporada fría"
+      ]
+    }
+  },
+  "weeklyPatterns": {
+    "weekdays": {
+      "days": [1, 2, 3, 4, 5],
+      "avgConsumption": 45000,
+      "pattern": "stable",
+      "peakHours": [8, 9, 18, 19, 20],
+      "characteristics": [
+        "Alto consumo comercial e industrial",
+        "Picos matutinos y vespertinos",
+        "Consumo predecible"
+      ]
+    },
+    "weekend": {
+      "days": [6, 0],
+      "avgConsumption": 38000,
+      "pattern": "reduced",
+      "peakHours": [11, 12, 19, 20],
+      "characteristics": [
+        "Menor consumo industrial",
+        "Mayor consumo residencial diurno",
+        "Distribución más uniforme"
+      ]
+    }
+  },
+  "anomalyPatterns": {
+    "spikes": {
+      "threshold": 1.5,
+      "commonCauses": [
+        "Eventos climáticos extremos",
+        "Festividades o eventos especiales",
+        "Fallos en medidores",
+        "Cambios en infraestructura"
+      ],
+      "detectionMethod": "z-score > 3"
+    },
+    "drops": {
+      "threshold": 0.7,
+      "commonCauses": [
+        "Cortes de energía",
+        "Mantenimiento programado",
+        "Días festivos",
+        "Cierres temporales"
+      ],
+      "detectionMethod": "z-score < -3"
+    }
+  },
+  "forecastingRules": {
+    "shortTerm": {
+      "horizon": "7 days",
+      "method": "ARIMA",
+      "features": ["historical_consumption", "day_of_week", "temperature"],
+      "confidence": 0.95
+    },
+    "mediumTerm": {
+      "horizon": "30 days",
+      "method": "SARIMA",
+      "features": ["monthly_trend", "seasonal_component", "population_growth"],
+      "confidence": 0.9
+    },
+    "longTerm": {
+      "horizon": "365 days",
+      "method": "LSTM",
+      "features": ["yearly_trend", "economic_indicators", "infrastructure_changes"],
+      "confidence": 0.85
+    }
+  },
+  "recommendations": {
+    "highConsumption": {
+      "threshold": 50000,
+      "actions": [
+        "Auditoría energética",
+        "Reemplazo de equipos ineficientes",
+        "Implementar horarios optimizados",
+        "Considerar energías renovables"
+      ]
+    },
+    "volatilePattern": {
+      "threshold": 0.25,
+      "actions": [
+        "Revisar medidores",
+        "Analizar cambios operativos",
+        "Implementar monitoreo continuo",
+        "Establecer alertas tempranas"
+      ]
+    },
+    "growingTrend": {
+      "threshold": 0.1,
+      "actions": [
+        "Planificar expansión de capacidad",
+        "Evaluar eficiencia energética",
+        "Proyectar demanda futura",
+        "Considerar alternativas sostenibles"
+      ]
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "modelInfo": {
+    "name": "Energy Consumption Predictor",
+    "version": "1.0.0",
+    "type": "LSTM",
+    "framework": "TensorFlow.js",
+    "trainedDate": "2024-01-15",
+    "accuracy": 0.94,
+    "mae": 1234.56,
+    "rmse": 2345.67
+  },
+  "hyperparameters": {
+    "layers": [
+      {
+        "type": "LSTM",
+        "units": 128,
+        "returnSequences": true,
+        "inputShape": [12, 5]
+      },
+      {
+        "type": "Dropout",
+        "rate": 0.2
+      },
+      {
+        "type": "LSTM",
+        "units": 64,
+        "returnSequences": false
+      },
+      {
+        "type": "Dropout",
+        "rate": 0.2
+      },
+      {
+        "type": "Dense",
+        "units": 32,
+        "activation": "relu"
+      },
+      {
+        "type": "Dense",
+        "units": 1,
+        "activation": "linear"
+      }
+    ],
+    "optimizer": "adam",
+    "loss": "mse",
+    "learningRate": 0.001,
+    "batchSize": 32,
+    "epochs": 100,
+    "sequenceLength": 12
+  },
+  "features": {
+    "input": ["consumo_historico", "mes", "poblacion", "temperatura_promedio", "dias_habiles"],
+    "output": ["consumo_predicho"]
+  },
+  "normalization": {
+    "method": "minmax",
+    "consumo": {
+      "min": 0,
+      "max": 1000000
+    },
+    "temperatura": {
+      "min": 10,
+      "max": 35
+    }
+  },
+  "metadata": {
+    "trainingSamples": 10000,
+    "validationSplit": 0.2,
+    "testAccuracy": 0.92,
+    "dataSource": "Historical consumption data 2020-2024",
+    "notes": "Model trained on Santander department data"
+  },
+  "weights": {
+    "format": "tensorflowjs",
+    "url": "/models/weights/",
+    "files": ["group1-shard1of2.bin", "group1-shard2of2.bin"]
+  }
+}
