@@ -1,6 +1,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useAuth } from '@/hooks';
-import { MainLayout, AuthLayout, PublicLayout } from '@/layouts';
+import { MainLayout, AuthLayout, PublicLayout } from '@/components/layout';
 
 // Auth
 import { Login, Register, ForgotPassword, ResetPassword } from '@/pages/auth';
